@@ -1,11 +1,11 @@
 // Whole-script strict mode syntax
 "use strict";
 // Initialize Global variables
-var gameState = "NotStarted"; //Defines state of the game. 
+var gameState = "NotStarted"; //Defines state of the game.
 var score = 0; // define score of the game
 var lives = 3; // plyaers default lives
 var level = 0; // game level
-var gemscount = 0; // gems counter 
+var gemscount = 0; // gems counter
 var playerimg = 'images/char-cat-girl.png'; //default player image
 // Initialize tile size constants
 var TILE_WIDTH = 101;
@@ -28,14 +28,14 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-	
+
 	if (this.x < 505) {
         this.x = this.x + (this.speed * dt);
     } else {
         this.x = -100;
     }
-	
-		
+
+
 };
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -49,7 +49,7 @@ var Player = function() {
     // The image/sprite for our players, this uses
     // a helper we've provided to easily load images
     this.sprite = playerimg;
-    this.x = 20 + 120 * (Math.floor(Math.random() * 4)); //randomize x position
+    this.x = 2 + 120 * (Math.floor(Math.random() * 4)); //randomize x position
     this.y = 350;
     this.speed = 10;
 };
@@ -71,15 +71,15 @@ Player.prototype.update = function(dt) {
         score = score + 10;
 		console.log('win');
 	 }
-	
+
 	if (score >40) {
 		console.log('GameWin');
 		gameState = "GameWin";
 	}
-	
-	
-	
-	
+
+
+
+
 };
 // Draw the player on the screen, required method for game
 Player.prototype.render = function() {
@@ -98,7 +98,7 @@ Player.prototype.checkCollisions = function() {
 				this.reset();
 			}
         }
-		 		
+
 }
 // Reset the player when it loses life or reaches goals.
 Player.prototype.reset = function() {
@@ -109,8 +109,8 @@ Player.prototype.reset = function() {
 Player.prototype.water = function() {
     this.x = 100;
     this.y = 0;
-	
-	
+
+
 };
 // Player loses life
 Player.prototype.lives = function() {
